@@ -98,6 +98,8 @@ def main():
         if any(keyword in title for keyword in DONATION_KEYWORDS) or any(
                 keyword in content for keyword in DONATION_KEYWORDS):
             type = "DONATION"
+        if [url, title, content, date] in mission_posts:
+            type = "MISSION"
         timestamp = unix_time_millis(date)
         news = JSONNews(type, title, content, url, timestamp)
         news_list.append(news)
